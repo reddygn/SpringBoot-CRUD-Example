@@ -9,12 +9,12 @@ public class User {
 
 	@Id
 	@GeneratedValue
-	private int id;
+	private long id;
 
 	private String name;
 	private long salary;
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 

@@ -1,9 +1,11 @@
 package com.naveen.spring_boot_crud.Controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,17 +22,19 @@ public class UserController {
 	@Autowired
 	UserService userService;
 
-	@Autowired
-	UserJpa userJpa;
-
 	@GetMapping(value = "/getall")
-	public List<User> getUser() {
-		return userJpa.findAll();
+	public List<User> getUsers() {
+		return userService.getUsers();
+	}
+
+	@GetMapping(value = "/getuser/{id}")
+	public Optional<User> getUserById(@PathVariable Long id) {
+		return userService.getUserById(id);
 	}
 
 	@PostMapping(value = "/create")
 	public User createUser(@RequestBody User user) {
-		return userJpa.saveAndFlush(user);
+		return userService.createUser(user);
 	}
 
 }
