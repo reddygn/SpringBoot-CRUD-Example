@@ -1,0 +1,5 @@
+com\naveen\spring_boot_crud\Entity\User.class
+com\naveen\spring_boot_crud\Service\UserService.class
+com\naveen\spring_boot_crud\SpringBootCRUD.class
+com\naveen\spring_boot_crud\Controller\UserController.class
+com\naveen\spring_boot_crud\Controller\TestController.class
