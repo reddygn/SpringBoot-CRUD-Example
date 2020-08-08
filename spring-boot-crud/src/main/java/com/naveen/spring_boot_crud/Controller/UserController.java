@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.naveen.spring_boot_crud.Entity.User;
-import com.naveen.spring_boot_crud.Repository.UserJpa;
 import com.naveen.spring_boot_crud.Service.UserService;
 
 @RestController
@@ -35,6 +35,11 @@ public class UserController {
 	@PostMapping(value = "/create")
 	public User createUser(@RequestBody User user) {
 		return userService.createUser(user);
+	}
+
+	@DeleteMapping(value = "/delete/{id}")
+	public List<User> deleteUser(@PathVariable Long id) {
+		return userService.deleteUser(id);
 	}
 
 }
